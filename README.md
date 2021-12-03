@@ -12,7 +12,7 @@ Usando Nmap
 ![image](https://user-images.githubusercontent.com/79328386/144467021-ed6d4345-454d-400b-a130-bbf0c3fd174a.png)
 
 
-Detectamos un Servidor Web corrienod sobre el puerto :3333
+Detectamos un Servidor Web corriendo sobre el puerto :3333
 
 ![image](https://user-images.githubusercontent.com/79328386/144467468-7de0d978-0e70-4dd7-b1f4-346f65b0eb3d.png)
 
@@ -56,4 +56,47 @@ Con esto se pude ver que la extension phtml es una extension permitida
 ![image](https://user-images.githubusercontent.com/79328386/144469971-a1e35699-b96d-4c2f-962f-03c82094d91c.png)
 
 Utilizamos eeste shell https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php editamos la parte correspondiente a la ip del host atacante.
+
+![image](https://user-images.githubusercontent.com/79328386/144670507-0f77538b-4d9a-4f3c-8798-102521b3023f.png)
+
+Se sube el archivo de la shell.
+
+![image](https://user-images.githubusercontent.com/79328386/144670681-a98213ab-9cba-4038-b532-283d1de0e99a.png)
+
+Utilizamos ncat y dejamos escuchando el puerto 1234
+![image](https://user-images.githubusercontent.com/79328386/144670793-cf1d9f17-0cbf-4c62-ba5d-b48a55a33352.png)
+
+Ingresamos la url donde guardamos el archivo
+![image](https://user-images.githubusercontent.com/79328386/144671040-f032fa21-7f74-401f-9959-2a646ae2412e.png)
+
+Y tenemos accesso a la maquina victima 
+![image](https://user-images.githubusercontent.com/79328386/144671110-fb4bfda0-addf-4506-9961-0325722d1d40.png)
+
+Encontramos el primer usuario
+
+![image](https://user-images.githubusercontent.com/79328386/144671234-1cdab297-f9f1-44db-a6d4-97c9853e2211.png)
+
+Ahora buscaremos ser root abusando  de SUID 
+
+ find / -user root -perm -4000 -exec ls -ldb {} \;
+ 
+ 
+ ![image](https://user-images.githubusercontent.com/79328386/144673200-f93772ee-8729-4e01-a694-a6948822ae73.png)
+ 
+ ![image](https://user-images.githubusercontent.com/79328386/144673557-14c83d9f-29f4-4214-bb24-551809a4401c.png)
+ 
+ 
+  ![image](https://user-images.githubusercontent.com/79328386/144681078-65cf6412-a6b9-447a-8b0f-6428499cd726.png)
+
+ Comprobamos los privilegios obtenidos
+ ![image](https://user-images.githubusercontent.com/79328386/144681143-4cf9a6ab-7560-4ba3-bfd2-2aaf2b9e6b07.png)
+
+Y podemos obtener la repsuesta siendo root
+
+![image](https://user-images.githubusercontent.com/79328386/144681199-6171f94b-8b2b-4d4b-a391-0a0473f43106.png)
+
+ 
+
+
+
 
